@@ -5,6 +5,7 @@ import './index.css';
 import Main from './components/Main';
 import CategoryData from './components/CategoryData';
 import MealDetails from './components/MealDetails';
+import Home from './components/Home';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
     },
     element: <Main></Main>,
     children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
       {
         path: 'category/:categoryName',
         loader: async ({params}) => {

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const SideBar = ({categories}) => {
     // console.log(categories)
     return (
-        <div>
+        <div className='sidebar-inner'>
             <ul className='category-list'>
                 {
                     categories.map(category => <li key={category.idCategory}><NavLink key={category.idCategory} to={`category/${category.strCategory}`}  className={({ isActive, isPending }) =>
