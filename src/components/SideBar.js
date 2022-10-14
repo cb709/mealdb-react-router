@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = ({categories}) => {
     // console.log(categories)
@@ -7,7 +7,13 @@ const SideBar = ({categories}) => {
         <div>
             <ul className='category-list'>
                 {
-                    categories.map(category => <li key={category.idCategory}><Link key={category.idCategory} to={`category/${category.strCategory}`}>{category.strCategory}</Link></li>)
+                    categories.map(category => <li key={category.idCategory}><NavLink key={category.idCategory} to={`category/${category.strCategory}`}  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "active"
+                      : isPending
+                      ? "pending"
+                      : ""
+                  }>{category.strCategory}</NavLink></li>)
                 }
             </ul>
         </div>

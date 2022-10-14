@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import Main from './components/Main';
 import CategoryData from './components/CategoryData';
+import MealDetails from './components/MealDetails';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -18,6 +19,13 @@ const router = createBrowserRouter([
           return fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.categoryName}`)
         },
         element: <CategoryData></CategoryData>
+      },
+      {
+        path: 'meal/:mealId',
+        loader: async ({params}) => {
+          return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.mealId}`)
+        },
+        element: <MealDetails></MealDetails>
       }
     ]
   }
