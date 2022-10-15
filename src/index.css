@@ -28,11 +28,38 @@ code {
 }
 
 .home {
+  background-image: url('https://images.unsplash.com/photo-1579794661617-b65ceb096d2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1089&q=80');
+  background-size: cover;
+}
+
+/* -----------background overlay------------------- */
+.overlay {
+  width: 100%; /* Full width (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
+.home-content {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+}
+.home-content h1 {
+  font-size: 4rem;
+  margin-bottom: 30px;
+}
+.home-content p {
+  font-size: 1.2rem;
+}
 .sidebar {
   background-color: rgb(60, 60, 60);
   max-height: 400px;
@@ -53,10 +80,6 @@ code {
 .sidebar-inner {
   position: sticky;
   top: 20px;
-}
-
-.content {
-  padding: 20px;
 }
 
 .category-list {
