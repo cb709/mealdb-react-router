@@ -35,9 +35,19 @@ code {
 
 .sidebar {
   background-color: rgb(60, 60, 60);
-  min-height: 100vh;
+  max-height: 400px;
   padding: 20px;
   position: relative;
+  overflow: auto;
+}
+
+.categories-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 10px 0 10px 0;
+  margin: 20px 0;
+  text-align: center;
 }
 
 .sidebar-inner {
@@ -51,9 +61,8 @@ code {
 
 .category-list {
   height: 100vh;
-  overflow-y: auto;
   display: block;
-  padding-bottom: 20px
+  padding-bottom: 20px;
 }
 
 .category-list li {
@@ -133,14 +142,36 @@ code {
   display: block;
 }
 
+.search-input,
+.search-btn {
+  display: block;
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.search-btn {
+  margin: 10px 0;
+}
+
+/* ----------------------------------
+            meadia query
+----------------------------------- */
 
 @media screen and (min-width: 576px) {
+  .sidebar {
+    height: 100vh;
+    max-height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+  }
   .meals-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  } 
+  }
   .main {
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 3fr;
   }
 }
 
@@ -148,8 +179,31 @@ code {
   .meals-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }  
+  }
   .main {
     grid-template-columns: 1fr 5fr;
   }
+}
+
+/* ----------------------------scrollbar------------------------------- */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border: 1px solid #f1f1f1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

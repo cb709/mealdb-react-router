@@ -1,11 +1,15 @@
 import { useLoaderData } from 'react-router-dom';
+import Meal from './Meal';
 
 const SearchDetails = () => {
-    const foods =  useLoaderData()
-    console.log(foods);
+    const data =  useLoaderData()
+    const meals = data.meals;
+    console.log(meals)
     return (
-        <div>
-            <h2>THis is search dettails {foods.meals.length} </h2>
+        <div className='meals-container'>
+            {
+                meals.map(meal => <Meal meal={meal}></Meal>)
+            }
         </div>
     );
 };

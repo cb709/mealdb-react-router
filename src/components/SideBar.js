@@ -6,11 +6,17 @@ const SideBar = ({ categories }) => {
   // console.log(categories)
   return (
     <div className="sidebar-inner">
-      <ul className="category-list">
-        <Form method="get" action="/search">
-          <input aria-label="search products" type="text" name="q" />
-          <button type="submit">Search</button>
+      <div className="search">
+      <Form method="get" action="/search">
+          <div className="search-box">
+            <input className="search-input" aria-label="search products" type="text" name="q" />
+            <button  className="search-btn" type="submit">Search</button>
+          </div>
         </Form>
+      </div>
+     <div className="categories-container">
+      <h3 className="categories-title">All Categories</h3>
+     <ul className="category-list">
         {categories.map((category) => (
           <li key={category.idCategory}>
             <NavLink
@@ -25,6 +31,7 @@ const SideBar = ({ categories }) => {
           </li>
         ))}
       </ul>
+     </div>
     </div>
   );
 };
